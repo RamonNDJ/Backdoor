@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>✘✘T1KUS90T✘✘</title>
+<title>✘✘NGEOD✘✘</title>
 <style type='text/css'>
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
 html {
@@ -41,7 +41,7 @@ select {
 </head>
 <center>
 <img src="http://orig07.deviantart.net/a89f/f/2016/229/1/4/deku_the_hero__izuku_midoriya__season_2_render_by_ironoakman-dadd99s.png" width="200px" height="270px"><br>
-<font color='red' size="6">✘✘</font><font color='white' size="8">T1KUS90T TEAM</font><font color='red' size="6">✘✘</font><br>
+<font color='red' size="6">✘✘</font><font color='white' size="8">NGEOD TEAM</font><font color='red' size="6">✘✘</font><br>
 <body bgcolor="black">
 <?php
 #######################
