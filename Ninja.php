@@ -16,7 +16,7 @@ echo '<!DOCTYPE HTML>
 <style>
 body{
 	font-family: "Racing Sans One", cursive;
-	background-image: url("https://ymi.today/wp-content/uploads/2017/06/why-i-said-no-to-clubbing.jpg");
+	background-image: url("http://trik99designs.com/wp-content/uploads/2018/08/one-piece-black-and-white-wallpaper-hd-luxury-e-piece-wallpapers-x-wallpaper-hd-wallpapers-of-one-piece-black-and-white-wallpaper-hd.png");
         color:White;
 	background-attachment:fixed;
 	background-repeat:no-repeat;
@@ -296,4 +296,4 @@ $info .= (($perms & 0x0001) ?
 return $info;
 }
 ?>
-<style type='text/css'>body,a:hover{cursor:url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur),progress!important;}</style>
+<style type='text/css'>body, a, a:link{cursor:url(http://4.bp.blogspot.com/-hAF7tPUnmEE/TwGR3lRH0EI/AAAAAAAAAs8/6pki22hc3NE/s1600/ass.png), default;} a:hover {cursor:url(http://3.bp.blogspot.com/-bRikgqeZx0Q/TwGR4MUEC7I/AAAAAAAAAtA/isJmS0r35Qw/s1600/pointer.png),wait;}</style>
