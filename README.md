@@ -1,2 +1,1 @@
-# By
-Just Github Private Shell
+# RamonNDJ Private Shell Github. No Hack No Money
