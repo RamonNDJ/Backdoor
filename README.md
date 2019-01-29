@@ -1,1 +1,1 @@
-# RamonNDJ Private Shell Github. No Hack No Money
+#  No Hack No Money
